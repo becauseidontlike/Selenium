@@ -10,42 +10,32 @@ import org.testng.annotations.Test;
 public class testLogowanie {
         ChromeDriver driver;
         String url = "https://www.demo.guru99.com/v4/";
-
-        @Test
+        @Test(priority = -100)
         public void invokeBrowser() {
-            System.setProperty("webdriver.chrome.driver","C:\\Users\\wiole\\OneDrive\\Pulpit\\tester_automatyzujący\\kody\\Selenium\\lib\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver","C:\\Users\\wiole\\OneDrive\\Pulpit\\tester_automatyzujacy\\kody\\Selenium\\lib\\chromedriver.exe");
             driver = new ChromeDriver();
-
-            driver.manage().window().maximize();
             driver.get(url);
+            driver.manage().window().maximize();
         }
-
-        @Test
+        @Test(priority = 0)
         public void verifyTitle() {
             String expectedT = "Guru99 Bank Home Page";
-
             String actualT = driver.getTitle();
-
             Assert.assertEquals(actualT, expectedT);
         }
-        @Test
+        @Test(priority = 100)
         public void verifyLoginTo() {
             WebElement userId = driver.findElement(By.name("uid"));
-
             WebElement userPassword = driver.findElement(By.name("password"));
-
             WebElement loginBut = driver.findElement(By.name("btnLogin"));
-
             userId.sendKeys("mngr509439");
             userPassword.sendKeys("manedEt");
-
             loginBut.click();
         }
 
-        @Test
+        @Test(priority = 200)
         public void addCustomer() {
             WebElement addCustomerLink = driver.findElement(By.linkText("New Customer"));
-
             addCustomerLink.click();
             driver.findElement(By.xpath("//input[@value='f']")).click();
             driver.findElement(By.name("name")).sendKeys("test");

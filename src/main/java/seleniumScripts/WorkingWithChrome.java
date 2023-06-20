@@ -1,15 +1,13 @@
 package seleniumScripts;
 
-
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WorkingWithChrome {
         ChromeDriver driver;
-        String url = "http://demo.guru99.com/v4";
+        String url = "https://www.shecodes.io/";
 
         public void invokeBrowser() {
-            System.setProperty("webdriver.chrome.driver","C:\\Users\\wiole\\OneDrive\\Pulpit\\tester_automatyzujący\\kody\\Selenium\\lib\\chromedriver.exe");
-
+            System.setProperty("webdriver.chrome.driver","C:\\Users\\wiole\\Downloads\\chromedriver_win32\\chromedriver.exe");
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get(url);
